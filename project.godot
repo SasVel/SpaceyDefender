@@ -14,6 +14,10 @@ config/name="SpaceyInvaders"
 run/main_scene="res://World/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 
+[autoload]
+
+PlayerInfo="*res://Player/PlayerInfo.tscn"
+
 [display]
 
 window/size/viewport_width=640

@@ -15,13 +15,16 @@ func _physics_process(_delta):
 	input_vector = Input.get_vector("ui_left", "ui_right", "accelerate", "none")
 	var inputTransformed = transform.basis_xform(input_vector)
 	
-	print(input_vector)
 	if (input_vector != Vector2.ZERO && input_vector.y < 0):
 		CURR_SPEED += ACCELERATION
 		velocity = inputTransformed * CURR_SPEED
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, DECELERATION)
 		CURR_SPEED -= DECELERATION
+		
+		
+	PlayerInfo.playerPosition = self.position
+	print(PlayerInfo.playerPosition)
 	move_and_slide()
 
 func set_curr_speed(val):

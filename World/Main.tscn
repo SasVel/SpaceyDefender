@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://no4awcfu40an"]
+[gd_scene load_steps=5 format=3 uid="uid://no4awcfu40an"]
 
 [ext_resource type="PackedScene" uid="uid://b2p2d4l3hpxwp" path="res://Player/Player.tscn" id="2_12tsq"]
 [ext_resource type="PackedScene" uid="uid://de72limjr02la" path="res://Background/Background.tscn" id="2_jkmt5"]
 [ext_resource type="PackedScene" uid="uid://ci6fao16s8hjq" path="res://MouseObject.tscn" id="3_wdygx"]
+[ext_resource type="PackedScene" uid="uid://bqd4iaoo6dyvg" path="res://Enemies/Enemy.tscn" id="4_3rbci"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,3 +13,6 @@
 position = Vector2(320, 182)
 
 [node name="MouseObject" parent="." instance=ExtResource("3_wdygx")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_3rbci")]
+position = Vector2(373, 118)

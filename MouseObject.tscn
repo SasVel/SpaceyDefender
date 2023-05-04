@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MouseObject.gd" id="1_ybs2i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3c34"]
-radius = 42.0119
+radius = 25.02
 
 [node name="MouseObject" type="Area2D"]
 collision_layer = 32
@@ -12,5 +12,3 @@ script = ExtResource("1_ybs2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a3c34")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
