@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://divtshllby660"]
+
+[node name="MainCamera" type="Camera2D"]
+position = Vector2(320, 180)
+position_smoothing_enabled = true
