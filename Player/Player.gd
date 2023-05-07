@@ -24,7 +24,6 @@ func _physics_process(_delta):
 		
 		
 	PlayerInfo.playerPosition = self.position
-	print(PlayerInfo.playerPosition)
 	move_and_slide()
 
 func set_curr_speed(val):

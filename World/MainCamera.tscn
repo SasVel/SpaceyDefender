@@ -3,3 +3,5 @@
 [node name="MainCamera" type="Camera2D"]
 position = Vector2(320, 180)
 position_smoothing_enabled = true
+drag_top_margin = 0.1
+drag_bottom_margin = 0.1
