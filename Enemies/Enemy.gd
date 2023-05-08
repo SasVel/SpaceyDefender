@@ -11,6 +11,7 @@ var d = 0.0
 @export var attack_rotation_speed = 1.0
 
 var isRightAttackRotation = randi_range(0, 2) == 0 if true else false
+@onready var enemyPivot = preload("res://Enemies/EnemyPivot/EnemyPivot.tscn").instantiate()
 
 var distanceToPlayer = Vector2.ZERO
 
@@ -49,11 +50,6 @@ func attack_state():
 	velocity = velocity.move_toward(Vector2.ZERO, 10)
 	if isRightAttackRotation:
 		attack_rotation_speed *= -1
-		
-	position = Vector2(
-		sin(d * attack_rotation_speed) * distance_for_attack,
-		cos(d * attack_rotation_speed) * distance_for_attack
-	) + PlayerInfo.playerPosition
 	
 	if abs(distanceToPlayer) >= Vector2(distance_for_attack, distance_for_attack):
 		state = CHASE

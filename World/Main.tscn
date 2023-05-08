@@ -15,4 +15,4 @@ position = Vector2(320, 182)
 [node name="MouseObject" parent="." instance=ExtResource("3_wdygx")]
 
 [node name="Enemy" parent="." instance=ExtResource("4_3rbci")]
-position = Vector2(373, 118)
+position = Vector2(561, 122)
