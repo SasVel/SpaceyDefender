@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 400
+@export var SPEED = 100
 func _ready():
 	rotation = PlayerInfo.playerRotation
 	position = PlayerInfo.playerPosition + Vector2(20, 20)
@@ -10,7 +10,7 @@ func _physics_process(delta):
 	
 	velocity = input_vector * SPEED
 	
-	out_of_bounds()	
+	out_of_bounds()
 	move_and_slide()
 		
 func out_of_bounds():

@@ -3,7 +3,3 @@
 [node name="MainCamera" type="Camera2D"]
 position = Vector2(320, 180)
 position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
