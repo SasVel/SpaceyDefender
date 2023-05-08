@@ -15,6 +15,8 @@ enum state {
 }
 var currentState = state.IDLE
 
+@onready var Bullet = preload("res://Bullet/Bullet.tscn")
+
 func _physics_process(_delta):
 	look_at(get_global_mouse_position())
 	self.rotation_degrees += 90
@@ -28,8 +30,13 @@ func _physics_process(_delta):
 		state.MOVE:
 			move_state()
 		
-	print(state.keys()[currentState].capitalize())
 	PlayerInfo.playerPosition = self.position
+	PlayerInfo.playerRotation = self.rotation
+	
+	if Input.is_action_just_pressed("shoot"):
+		var bullet = Bullet.instantiate()
+		get_tree().get_root().add_child(bullet)
+	
 	move_and_slide()
 
 func idle_state():
@@ -41,6 +48,7 @@ func idle_state():
 	
 func move_state():
 	var inputTransformed = transform.basis_xform(input_vector)
+	print(inputTransformed)
 	if (input_vector != Vector2.ZERO && input_vector.y < 0):
 		CURR_SPEED += ACCELERATION
 		velocity = inputTransformed * CURR_SPEED
