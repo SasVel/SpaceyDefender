@@ -32,10 +32,11 @@ func _physics_process(_delta):
 		
 	PlayerInfo.playerPosition = self.position
 	PlayerInfo.playerRotation = self.rotation
+	PlayerInfo.playerVelocity = self.velocity
 	
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = Bullet.instantiate()
-		get_tree().get_root().add_child(bullet)
+		get_tree().get_root().get_child(1).add_child(bullet)
 	
 	move_and_slide()
 

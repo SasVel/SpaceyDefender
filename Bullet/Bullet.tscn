@@ -8,9 +8,12 @@ radius = 1.0
 height = 8.0
 
 [node name="Bullet" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 16
 script = ExtResource("1_dupxd")
 
 [node name="MainSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -23)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_ot6sl")
 

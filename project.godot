@@ -85,6 +85,7 @@ shoot={
 2d_physics/layer_4="PlayerHurtbox"
 2d_physics/layer_5="EnemyHurtbox"
 2d_physics/layer_6="Mouse"
+2d_physics/layer_7="PlayerBullet"
 
 [rendering]
 
