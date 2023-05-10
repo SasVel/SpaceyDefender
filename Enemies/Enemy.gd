@@ -21,6 +21,9 @@ enum {
 }
 var state = CHASE
 
+@onready var Bullet = preload("res://Bullet/EnemyBullet/EnemyBullet.tscn")
+@onready var shootTimer = $ShootTimer
+
 func _physics_process(delta):
 	distanceToPlayer = global_position - PlayerInfo.playerPosition
 	d += delta
@@ -42,6 +45,8 @@ func chase_state():
 	var directionToPlayer = global_position.direction_to(PlayerInfo.playerPosition)
 	velocity = velocity.move_toward(directionToPlayer * acceleration, speed)
 	
+	if !shootTimer.is_stopped():
+		shootTimer.stop()
 	if abs(distanceToPlayer).x < distance_for_attack || abs(distanceToPlayer).y < distance_for_attack:
 		state = ATTACK
 
@@ -50,6 +55,20 @@ func attack_state():
 	velocity = velocity.move_toward(Vector2.ZERO, 10)
 	if isRightAttackRotation:
 		attack_rotation_speed *= -1
-	
+		
+	if shootTimer.is_stopped():
+		shootTimer.start()
 	if abs(distanceToPlayer).x > distance_for_attack || abs(distanceToPlayer).y > distance_for_attack:
 		state = CHASE
+
+
+func _on_hurt_box_area_entered(area):
+	queue_free()
+
+func _on_shoot_timer_timeout():
+	shoot()
+	
+func shoot():
+	var bullet = Bullet.instantiate()
+	bullet.entity = self
+	get_tree().get_root().get_child(1).add_child(bullet)

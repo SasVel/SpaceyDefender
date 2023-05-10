@@ -1,15 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqd4iaoo6dyvg"]
+[gd_scene load_steps=8 format=3 uid="uid://bqd4iaoo6dyvg"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_mndff"]
 [ext_resource type="Texture2D" uid="uid://dpssaijuwg3ed" path="res://Enemies/EnemySprite.png" id="2_w73ps"]
+[ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="3_84ggv"]
+[ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_yhpat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgntr"]
+radius = 8.06226
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pbdhc"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fl41r"]
+radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 66
 script = ExtResource("1_mndff")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="MainSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_w73ps")
 
 [node name="MainCollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_rgntr")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_84ggv")]
+collision_layer = 16
+collision_mask = 66
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_pbdhc")
+
+[node name="HitBox" parent="." instance=ExtResource("4_yhpat")]
+collision_layer = 0
+collision_mask = 66
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_fl41r")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

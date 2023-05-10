@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dckqpm8dwb6ap"]
+
+[ext_resource type="PackedScene" uid="uid://drh61b64p61k1" path="res://Bullet/Bullet.tscn" id="1_o8dln"]
+
+[node name="PlayerBullet" instance=ExtResource("1_o8dln")]
+
+[editable path="HitBox"]
+[editable path="HurtBox"]

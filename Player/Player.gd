@@ -15,7 +15,9 @@ enum state {
 }
 var currentState = state.IDLE
 
-@onready var Bullet = preload("res://Bullet/Bullet.tscn")
+@onready var Bullet = preload("res://Bullet/PlayerBullet/PlayerBullet.tscn")
+var canShoot = true;
+@onready var shootTimer = $ShootTimer
 
 func _physics_process(_delta):
 	look_at(get_global_mouse_position())
@@ -34,9 +36,7 @@ func _physics_process(_delta):
 	PlayerInfo.playerRotation = self.rotation
 	PlayerInfo.playerVelocity = self.velocity
 	
-	if Input.is_action_just_pressed("shoot"):
-		var bullet = Bullet.instantiate()
-		get_tree().get_root().get_child(1).add_child(bullet)
+	shoot_action()
 	
 	move_and_slide()
 
@@ -49,13 +49,21 @@ func idle_state():
 	
 func move_state():
 	var inputTransformed = transform.basis_xform(input_vector)
-	print(inputTransformed)
 	if (input_vector != Vector2.ZERO && input_vector.y < 0):
 		CURR_SPEED += ACCELERATION
 		velocity = inputTransformed * CURR_SPEED
 	else:
 		currentState = state.IDLE
+func shoot_action():
+	if Input.is_action_pressed("shoot") && canShoot:
+		var bullet = Bullet.instantiate() as Bullet
+		bullet.entity = self
+		get_tree().get_root().get_child(1).add_child(bullet)
+		canShoot = false
+		shootTimer.start()
+
+func _on_shoot_timer_timeout():
+	canShoot = true
 
 func set_curr_speed(val):
 	CURR_SPEED = clamp(val, BASE_SPEED, MAX_SPEED)
-
