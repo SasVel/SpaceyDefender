@@ -11,7 +11,6 @@ var d = 0.0
 @export var attack_rotation_speed = 1.0
 
 var isRightAttackRotation = randi_range(0, 2) == 0 if true else false
-@onready var enemyPivot = preload("res://Enemies/EnemyPivot/EnemyPivot.tscn").instantiate()
 
 var distanceToPlayer = Vector2.ZERO
 
@@ -23,6 +22,7 @@ var state = CHASE
 
 @onready var Bullet = preload("res://Bullet/EnemyBullet/EnemyBullet.tscn")
 @onready var shootTimer = $ShootTimer
+@onready var stats = $Stats
 
 func _physics_process(delta):
 	distanceToPlayer = global_position - PlayerInfo.playerPosition
@@ -63,7 +63,7 @@ func attack_state():
 
 
 func _on_hurt_box_area_entered(area):
-	queue_free()
+	stats.health -= area.damage
 
 func _on_shoot_timer_timeout():
 	shoot()
@@ -72,3 +72,7 @@ func shoot():
 	var bullet = Bullet.instantiate()
 	bullet.entity = self
 	get_tree().get_root().get_child(1).add_child(bullet)
+
+
+func _on_stats_no_health():
+	queue_free()

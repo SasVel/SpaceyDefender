@@ -4,13 +4,14 @@
 
 [node name="EnemyBullet" instance=ExtResource("1_k554k")]
 collision_layer = 128
-collision_mask = 72
+collision_mask = 0
+SPEED = 300
 
 [node name="HitBox" parent="." index="2"]
-collision_mask = 74
+collision_mask = 8
 
 [node name="HurtBox" parent="." index="3"]
-collision_layer = 128
+collision_layer = 512
 collision_mask = 8
 
 [editable path="HitBox"]

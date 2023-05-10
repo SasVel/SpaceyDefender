@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqd4iaoo6dyvg"]
+[gd_scene load_steps=9 format=3 uid="uid://bqd4iaoo6dyvg"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_mndff"]
+[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_5k3wh"]
 [ext_resource type="Texture2D" uid="uid://dpssaijuwg3ed" path="res://Enemies/EnemySprite.png" id="2_w73ps"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="3_84ggv"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_yhpat"]
@@ -19,11 +20,13 @@ collision_layer = 4
 collision_mask = 66
 script = ExtResource("1_mndff")
 
-[node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="Stats" parent="." instance=ExtResource("2_5k3wh")]
+max_health = 2
 
 [node name="MainSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_w73ps")
+
+[node name="ShootTimer" type="Timer" parent="."]
 
 [node name="MainCollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -39,12 +42,13 @@ shape = SubResource("CircleShape2D_pbdhc")
 
 [node name="HitBox" parent="." instance=ExtResource("4_yhpat")]
 collision_layer = 0
-collision_mask = 66
+collision_mask = 258
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_fl41r")
 
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

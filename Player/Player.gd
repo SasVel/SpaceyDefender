@@ -18,6 +18,7 @@ var currentState = state.IDLE
 @onready var Bullet = preload("res://Bullet/PlayerBullet/PlayerBullet.tscn")
 var canShoot = true;
 @onready var shootTimer = $ShootTimer
+@onready var stats = $Stats
 
 func _physics_process(_delta):
 	look_at(get_global_mouse_position())
@@ -67,3 +68,9 @@ func _on_shoot_timer_timeout():
 
 func set_curr_speed(val):
 	CURR_SPEED = clamp(val, BASE_SPEED, MAX_SPEED)
+
+func _on_hurt_box_area_entered(area):
+	stats.health -= area.damage
+
+func _on_stats_no_health():
+	queue_free()
