@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqd4iaoo6dyvg"]
+[gd_scene load_steps=9 format=3 uid="uid://drpuks8r7wifr"]
 
-[ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_mndff"]
-[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_5k3wh"]
-[ext_resource type="Texture2D" uid="uid://dpssaijuwg3ed" path="res://Enemies/EnemySprite.png" id="2_w73ps"]
-[ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="3_84ggv"]
-[ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_yhpat"]
+[ext_resource type="Script" path="res://Enemies/EnemyShip/EnemyShip.gd" id="1_hwvh7"]
+[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_djy5u"]
+[ext_resource type="Texture2D" uid="uid://dpssaijuwg3ed" path="res://Enemies/EnemyShip/EnemySprite.png" id="3_6ojy7"]
+[ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="4_pfiib"]
+[ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="5_yuc51"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgntr"]
 radius = 8.06226
@@ -15,15 +15,17 @@ radius = 11.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fl41r"]
 radius = 11.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="EnemyShip" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_mndff")
+script = ExtResource("1_hwvh7")
+rotation_speed = 5.0
+distance_for_attack = 180
 
-[node name="Stats" parent="." instance=ExtResource("2_5k3wh")]
+[node name="Stats" parent="." instance=ExtResource("2_djy5u")]
 max_health = 2
 
 [node name="MainSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_w73ps")
+texture = ExtResource("3_6ojy7")
 
 [node name="ShootTimer" type="Timer" parent="."]
 
@@ -31,7 +33,7 @@ texture = ExtResource("2_w73ps")
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_rgntr")
 
-[node name="HurtBox" parent="." instance=ExtResource("3_84ggv")]
+[node name="HurtBox" parent="." instance=ExtResource("4_pfiib")]
 collision_layer = 16
 collision_mask = 66
 
@@ -39,7 +41,7 @@ collision_mask = 66
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_pbdhc")
 
-[node name="HitBox" parent="." instance=ExtResource("4_yhpat")]
+[node name="HitBox" parent="." instance=ExtResource("5_yuc51")]
 collision_layer = 4
 collision_mask = 258
 

@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://no4awcfu40an"]
+[gd_scene load_steps=10 format=3 uid="uid://bxognfcb5yu15"]
 
 [ext_resource type="PackedScene" uid="uid://b2p2d4l3hpxwp" path="res://Player/Player.tscn" id="2_12tsq"]
 [ext_resource type="PackedScene" uid="uid://de72limjr02la" path="res://Background/Background.tscn" id="2_jkmt5"]
 [ext_resource type="PackedScene" uid="uid://ci6fao16s8hjq" path="res://MouseObject.tscn" id="3_wdygx"]
-[ext_resource type="PackedScene" uid="uid://bqd4iaoo6dyvg" path="res://Enemies/Enemy.tscn" id="4_3rbci"]
+[ext_resource type="PackedScene" uid="uid://drpuks8r7wifr" path="res://Enemies/EnemyShip/EnemyShip.tscn" id="3_xgsf7"]
+[ext_resource type="PackedScene" uid="uid://di7dk7ru8penn" path="res://Enemies/Mothership/EnemyMothership.tscn" id="4_62mxo"]
 [ext_resource type="PackedScene" uid="uid://duj6bmn627nsk" path="res://UI/HealthUI/HealthUI.tscn" id="5_41kbi"]
+[ext_resource type="PackedScene" uid="uid://gil6g8c814l2" path="res://UI/ScoreUI/ScoreUI.tscn" id="6_aenq7"]
+[ext_resource type="PackedScene" uid="uid://cegjlefmdss8" path="res://UI/PauseUI/PauseUI.tscn" id="7_bt7kw"]
+[ext_resource type="PackedScene" uid="uid://c7pl5lp5xye2x" path="res://UI/GameOverUI/GameOverUI.tscn" id="8_7k87c"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,11 +17,20 @@
 [node name="Player" parent="." instance=ExtResource("2_12tsq")]
 position = Vector2(320, 182)
 
-[node name="MouseObject" parent="." instance=ExtResource("3_wdygx")]
+[node name="EnemyShip" parent="." instance=ExtResource("3_xgsf7")]
+position = Vector2(512, 126)
 
-[node name="Enemy" parent="." instance=ExtResource("4_3rbci")]
-position = Vector2(561, 122)
+[node name="EnemyMothership" parent="." instance=ExtResource("4_62mxo")]
+position = Vector2(143, 99)
+
+[node name="MouseObject" parent="." instance=ExtResource("3_wdygx")]
 
 [node name="UIElements" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="UIElements" instance=ExtResource("5_41kbi")]
+
+[node name="ScoreUI" parent="UIElements" instance=ExtResource("6_aenq7")]
+
+[node name="PauseUI" parent="UIElements" instance=ExtResource("7_bt7kw")]
+
+[node name="GameOverUI" parent="UIElements" instance=ExtResource("8_7k87c")]

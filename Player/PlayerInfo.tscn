@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1qlokalmbyap"]
-
-[ext_resource type="Script" path="res://Player/PlayerInfo.gd" id="1_wcstk"]
-
-[node name="PlayerInfo" type="Node2D"]
-script = ExtResource("1_wcstk")

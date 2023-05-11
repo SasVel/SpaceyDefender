@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctkbktxv0f65t"]
+
+[ext_resource type="Script" path="res://GlobalInfo.gd" id="1_3bnyi"]
+
+[node name="GlobalInfo" type="Node2D"]
+script = ExtResource("1_3bnyi")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

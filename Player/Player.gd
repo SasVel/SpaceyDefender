@@ -18,7 +18,9 @@ var currentState = state.IDLE
 @onready var Bullet = preload("res://Bullet/PlayerBullet/PlayerBullet.tscn")
 var canShoot = true;
 @onready var shootTimer = $ShootTimer
-@onready var stats = $Stats
+
+func _ready():
+	PlayerStats.no_health.connect(on_no_health)
 
 func _physics_process(_delta):
 	look_at(get_global_mouse_position())
@@ -33,9 +35,9 @@ func _physics_process(_delta):
 		state.MOVE:
 			move_state()
 		
-	PlayerInfo.playerPosition = self.position
-	PlayerInfo.playerRotation = self.rotation
-	PlayerInfo.playerVelocity = self.velocity
+	GlobalInfo.playerPosition = self.position
+	GlobalInfo.playerRotation = self.rotation
+	GlobalInfo.playerVelocity = self.velocity
 	
 	shoot_action()
 	
@@ -70,8 +72,7 @@ func set_curr_speed(val):
 	CURR_SPEED = clamp(val, BASE_SPEED, MAX_SPEED)
 
 func _on_hurt_box_area_entered(area):
-	stats.health -= area.damage
+	PlayerStats.health -= area.damage
 
-func _on_stats_no_health():
-	get_tree().paused = true
+func on_no_health():
 	queue_free()

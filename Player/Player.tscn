@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2p2d4l3hpxwp"]
+[gd_scene load_steps=9 format=3 uid="uid://b2p2d4l3hpxwp"]
 
 [ext_resource type="Texture2D" uid="uid://dccgwho4vtwsg" path="res://Player/PlayerSprite.png" id="1_flcif"]
 [ext_resource type="PackedScene" uid="uid://divtshllby660" path="res://World/MainCamera.tscn" id="1_gv6ag"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_v4lxc"]
-[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_gc2ho"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_6oedw"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="5_2ec8o"]
 
@@ -17,10 +16,6 @@ height = 20.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_v4lxc")
-MAX_SPEED = 400
-
-[node name="Stats" parent="." instance=ExtResource("2_gc2ho")]
-max_health = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_flcif")
@@ -56,7 +51,6 @@ collision_mask = 516
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_o7rip")
 
-[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

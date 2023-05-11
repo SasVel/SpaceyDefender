@@ -5,7 +5,7 @@ signal changed_health(val)
 
 @export var max_health = 1
 var health : set = set_health
- 
+
 func _ready():
 	health = max_health
 

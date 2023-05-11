@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhri3ypuxc8r5"]
-
-[ext_resource type="Script" path="res://Enemies/EnemyPivot/EnemyPivot.gd" id="1_ct3g8"]
-
-[node name="EnemyPivot" type="Marker2D"]
-script = ExtResource("1_ct3g8")

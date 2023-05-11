@@ -11,13 +11,13 @@ func _ready():
 func on_no_health():
 	get_tree().paused = true
 	
-	scoreLabel.text = "SCORE " + str(ScoreboardInfo.score)
-	enemiesKilledLabel.text = "ENEMIES KILLED " + str(PlayerStats.enemiesKilled)
+	scoreLabel.text = "SCORE " + str(GlobalInfo.score)
+	enemiesKilledLabel.text = "ENEMIES KILLED " + str(GlobalInfo.enemiesKilled)
 	
 	self.visible = true
 
-func _on_texture_button_pressed():
+func _on_restart_btn_pressed():
 	get_tree().reload_current_scene()
-	ScoreboardInfo.score = 0
+	GlobalInfo.score = 0
 	PlayerStats.health = PlayerStats.max_health
 	get_tree().paused = false

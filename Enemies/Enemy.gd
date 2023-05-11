@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name	Enemy
 
 var d = 0.0
 
@@ -20,12 +21,8 @@ enum {
 }
 var state = CHASE
 
-@onready var Bullet = preload("res://Bullet/EnemyBullet/EnemyBullet.tscn")
-@onready var shootTimer = $ShootTimer
-@onready var stats = $Stats
-
 func _physics_process(delta):
-	distanceToPlayer = global_position - PlayerInfo.playerPosition
+	distanceToPlayer = global_position - GlobalInfo.playerPosition
 	d += delta
 	
 	enemy_rotation()
@@ -36,43 +33,20 @@ func _physics_process(delta):
 			attack_state()
 	
 	move_and_slide()
-
+	
 func enemy_rotation():
-	var angle = self.get_angle_to(PlayerInfo.playerPosition)
+	var angle = self.get_angle_to(GlobalInfo.playerPosition)
 	global_rotation = lerp_angle(rotation, rotation + angle + deg_to_rad(90), rotation_speed / 100)
 	
 func chase_state():
-	var directionToPlayer = global_position.direction_to(PlayerInfo.playerPosition)
+	var directionToPlayer = global_position.direction_to(GlobalInfo.playerPosition)
 	velocity = velocity.move_toward(directionToPlayer * acceleration, speed)
 	
-	if !shootTimer.is_stopped():
-		shootTimer.stop()
 	if abs(distanceToPlayer).x < distance_for_attack || abs(distanceToPlayer).y < distance_for_attack:
 		state = ATTACK
-
-
+		
 func attack_state():
 	velocity = velocity.move_toward(Vector2.ZERO, 10)
-	if isRightAttackRotation:
-		attack_rotation_speed *= -1
 		
-	if shootTimer.is_stopped():
-		shootTimer.start()
 	if abs(distanceToPlayer).x > distance_for_attack || abs(distanceToPlayer).y > distance_for_attack:
 		state = CHASE
-
-
-func _on_hurt_box_area_entered(area):
-	stats.health -= area.damage
-
-func _on_shoot_timer_timeout():
-	shoot()
-	
-func shoot():
-	var bullet = Bullet.instantiate()
-	bullet.entity = self
-	get_tree().get_root().get_child(1).add_child(bullet)
-
-
-func _on_stats_no_health():
-	queue_free()
