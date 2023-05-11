@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://cegjlefmdss8"]
+
+[ext_resource type="Script" path="res://UI/PauseUI/PauseUI.gd" id="1_40tjw"]
+[ext_resource type="FontFile" uid="uid://b6c557pbj4xo1" path="res://Font/PIXBOB LITE.ttf" id="1_jwu67"]
+[ext_resource type="Script" path="res://UI/BlinkingText.gd" id="3_7i85e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocmqh"]
+font = ExtResource("1_jwu67")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d71bm"]
+font = ExtResource("1_jwu67")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PauseUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40tjw")
+
+[node name="PauseLabel" type="Label" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -24.0
+offset_right = 20.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_ocmqh")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_7i85e")
+
+[node name="BlinkTimer" type="Timer" parent="PauseLabel"]
+process_mode = 3
+wait_time = 0.6
+autostart = true
+
+[node name="EscLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -0.5
+offset_right = 47.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS ESC TO CONTINUE"
+label_settings = SubResource("LabelSettings_d71bm")
+script = ExtResource("3_7i85e")
+
+[node name="BlinkTimer" type="Timer" parent="EscLabel"]
+process_mode = 3
+wait_time = 0.6
+autostart = true
+
+[connection signal="timeout" from="PauseLabel/BlinkTimer" to="PauseLabel" method="_on_blink_timer_timeout"]
+[connection signal="timeout" from="EscLabel/BlinkTimer" to="EscLabel" method="_on_blink_timer_timeout"]

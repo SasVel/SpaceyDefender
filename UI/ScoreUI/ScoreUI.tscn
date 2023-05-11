@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://gil6g8c814l2"]
+
+[ext_resource type="Script" path="res://UI/ScoreUI/ScoreUI.gd" id="1_k0gnp"]
+[ext_resource type="PackedScene" uid="uid://dvgrm1isf1o0v" path="res://ScoreboardInfo.tscn" id="2_arcvg"]
+[ext_resource type="FontFile" uid="uid://b6c557pbj4xo1" path="res://Font/PIXBOB LITE.ttf" id="2_vusak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_djgw6"]
+font = ExtResource("2_vusak")
+font_size = 12
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ScoreUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k0gnp")
+
+[node name="ScoreDisplay" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 49.0
+offset_bottom = 29.0
+label_settings = SubResource("LabelSettings_djgw6")
+
+[node name="ScoreboardInfo" parent="." instance=ExtResource("2_arcvg")]

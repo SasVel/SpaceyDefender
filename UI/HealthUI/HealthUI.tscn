@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://duj6bmn627nsk"]
+
+[ext_resource type="Script" path="res://UI/HealthUI/HealthUI.gd" id="1_ngw4b"]
+[ext_resource type="Texture2D" uid="uid://dqpryltvr71d4" path="res://UI/HealthUI/progress-bar-under.png" id="2_v27ef"]
+[ext_resource type="Texture2D" uid="uid://toqdefg0m4ul" path="res://UI/HealthUI/progress-bar-over.png" id="3_er13u"]
+[ext_resource type="Texture2D" uid="uid://df6ogdxkk7a7j" path="res://UI/HealthUI/progress-bar-border.png" id="3_xt1hl"]
+
+[node name="HealthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ngw4b")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = 24.0
+grow_horizontal = 0
+fill_mode = 1
+texture_under = ExtResource("2_v27ef")
+texture_over = ExtResource("3_xt1hl")
+texture_progress = ExtResource("3_er13u")

@@ -73,4 +73,5 @@ func _on_hurt_box_area_entered(area):
 	stats.health -= area.damage
 
 func _on_stats_no_health():
+	get_tree().paused = true
 	queue_free()
