@@ -3,7 +3,6 @@ extends Enemy
 @onready var Bullet = preload("res://Bullet/EnemyBullet/EnemyBullet.tscn")
 @onready var shootTimer = $ShootTimer
 @onready var stats = $Stats
-
 	
 func chase_state():
 	if !shootTimer.is_stopped():
@@ -31,4 +30,5 @@ func shoot():
 
 func _on_stats_no_health():
 	GlobalInfo.enemiesKilled += 1
+	GlobalInfo.score += scoreOnKill
 	queue_free()

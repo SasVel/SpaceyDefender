@@ -5,14 +5,11 @@ var d = 0.0
 
 @export var speed = 100
 @export var acceleration = 80
-
 @export var rotation_speed : float = 8
-
 @export var distance_for_attack = 200
 @export var attack_rotation_speed = 1.0
-
+@export var scoreOnKill = 100
 var isRightAttackRotation = randi_range(0, 2) == 0 if true else false
-
 var distanceToPlayer = Vector2.ZERO
 
 enum {

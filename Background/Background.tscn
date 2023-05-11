@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://de72limjr02la"]
+[gd_scene load_steps=9 format=3 uid="uid://de72limjr02la"]
 
 [ext_resource type="Texture2D" uid="uid://q11xnt15kkxp" path="res://Background/space4_4-frames.png" id="1_cikuk"]
+[ext_resource type="Texture2D" uid="uid://bpb322j5o3le4" path="res://Background/Planets/Baren.png" id="2_3mptp"]
+[ext_resource type="Script" path="res://Background/Planets/Planet.gd" id="3_31e0b"]
+[ext_resource type="Texture2D" uid="uid://epyn0vgap4r8" path="res://Background/Planets/Terran.png" id="4_8j35p"]
+[ext_resource type="Texture2D" uid="uid://qrrfx15wwj76" path="res://Background/Planets/Ice.png" id="5_5vrmf"]
+[ext_resource type="Texture2D" uid="uid://r16jbj140v1m" path="res://Background/Planets/Lava.png" id="6_oqufx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvbw0"]
 texture = ExtResource("1_cikuk")
@@ -17,11 +22,39 @@ sources/0 = SubResource("TileSetAtlasSource_uvbw0")
 
 [node name="Background" type="ParallaxBackground"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="BackgroundParallax" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(1080, 440)
 
-[node name="BackgroundTiles" type="TileMap" parent="ParallaxLayer"]
+[node name="BackgroundTiles" type="TileMap" parent="BackgroundParallax"]
 tile_set = SubResource("TileSet_bahy5")
 cell_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65541, 0, 0, 131080, 0, 0, 65545, 0, 0, 196609, 0, 0, 327684, 0, 0, 458754, 0, 0, 458753, 0, 0, 393224, 0, 0, 524293, 0, 0, 262154, 0, 0, 458763, 0, 0, 65548, 0, 0, 262156, 0, 0, 655368, 0, 0, 655372, 0, 0, 524301, 0, 0, 655375, 0, 0, 655378, 0, 0, 393234, 0, 0, 327696, 0, 0, 393233, 0, 0, 65552, 0, 0, 20, 0, 0, 196628, 0, 0, 589827, 0, 0, 589829, 0, 0, 655360, 0, 0, 458772, 0, 0, 655364, 0, 0, 524288, 0, 0, 327680, 0, 0, 65536, 0, 0, 16, 0, 0, 0, 0, 0, 4, 0, 0, 8, 0, 0, 12, 0, 0, 655380, 0, 0, 655384, 0, 0, 458776, 0, 0, 196632, 0, 0, 24, 0, 0, 917504, 0, 0, 851972, 0, 0, 1048580, 0, 0, 1048576, 0, 0, 917511, 0, 0, 983051, 0, 0, 1048583, 0, 0, 851979, 0, 0, 917519, 0, 0, 1048590, 0, 0, 1048594, 0, 0, 917528, 0, 0, 1048600, 0, 0, 1048598, 0, 0, 851988, 0, 0, 851987, 0, 0, 28, 0, 0, 32, 0, 0, 36, 0, 0, 196644, 0, 0, 262172, 0, 0, 524316, 0, 0, 720924, 0, 0, 917532, 0, 0, 1048603, 0, 0, 1048607, 0, 0, 1048611, 0, 0, 786468, 0, 0, 786464, 0, 0, 524320, 0, 0, 524324, 0, 0, 786466, 0, 0, 262176, 0, 0, 327716, 0, 0, 1048587, 0, 0, 1048612, 0, 0, 1310720, 0, 0, 1572864, 0, 0, 1441792, 0, 0, 1310724, 0, 0, 1572867, 0, 0, 1572871, 0, 0, 1572875, 0, 0, 1572879, 0, 0, 1572883, 0, 0, 1572887, 0, 0, 1572891, 0, 0, 1572895, 0, 0, 1572899, 0, 0, 1572900, 0, 0, 1310756, 0, 0, 1310753, 0, 0, 1310750, 0, 0, 1310746, 0, 0, 1310742, 0, 0, 1310739, 0, 0, 1310735, 0, 0, 1310732, 0, 0, 1310728, 0, 0, 1441799, 0, 0, 1572885, 0, 0, 1572873, 0, 0, 1572869, 0, 0, 40, 0, 0, 44, 0, 0, 48, 0, 0, 52, 0, 0, 56, 0, 0, 60, 0, 0, 64, 0, 0, 262207, 0, 0, 262208, 0, 0, 262203, 0, 0, 262200, 0, 0, 262196, 0, 0, 262193, 0, 0, 262190, 0, 0, 262186, 0, 0, 262184, 0, 0, 458792, 0, 0, 720935, 0, 0, 983080, 0, 0, 1245224, 0, 0, 1441832, 0, 0, 1572904, 0, 0, 1572903, 0, 0, 720939, 0, 0, 720942, 0, 0, 720946, 0, 0, 720950, 0, 0, 720949, 0, 0, 524332, 0, 0, 524336, 0, 0, 524340, 0, 0, 524344, 0, 0, 720954, 0, 0, 524348, 0, 0, 524352, 0, 0, 786493, 0, 0, 786496, 0, 0, 1048640, 0, 0, 1048637, 0, 0, 983098, 0, 0, 983094, 0, 0, 1179702, 0, 0, 1179699, 0, 0, 1310769, 0, 0, 1507375, 0, 0, 1572909, 0, 0, 1572908, 0, 0, 1310764, 0, 0, 1245230, 0, 0, 1048620, 0, 0, 917548, 0, 0, 1048624, 0, 0, 983088, 0, 0, 917555, 0, 0, 1572913, 0, 0, 1572916, 0, 0, 1441844, 0, 0, 1376311, 0, 0, 1572919, 0, 0, 1572923, 0, 0, 1572927, 0, 0, 1572928, 0, 0, 1310784, 0, 0, 1310780, 0, 0, 1310778, 0, 0, 1245242, 0, 0)
+
+[node name="PlanetsLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.95, 0.95)
+motion_mirroring = Vector2(3240, 1320)
+
+[node name="Planet1" type="Sprite2D" parent="PlanetsLayer"]
+position = Vector2(190, 95)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_3mptp")
+script = ExtResource("3_31e0b")
+
+[node name="Planet2" type="Sprite2D" parent="PlanetsLayer"]
+position = Vector2(1779, 1020)
+scale = Vector2(2.66667, 2.66667)
+texture = ExtResource("4_8j35p")
+script = ExtResource("3_31e0b")
+
+[node name="Planet3" type="Sprite2D" parent="PlanetsLayer"]
+position = Vector2(1357, 235)
+scale = Vector2(2.04167, 2.04167)
+texture = ExtResource("5_5vrmf")
+script = ExtResource("3_31e0b")
+
+[node name="Planet4" type="Sprite2D" parent="PlanetsLayer"]
+position = Vector2(2792, 947)
+scale = Vector2(2.04168, 2.04168)
+texture = ExtResource("6_oqufx")
+script = ExtResource("3_31e0b")

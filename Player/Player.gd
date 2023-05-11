@@ -40,7 +40,6 @@ func _physics_process(_delta):
 	GlobalInfo.playerVelocity = self.velocity
 	
 	shoot_action()
-	
 	move_and_slide()
 
 func idle_state():

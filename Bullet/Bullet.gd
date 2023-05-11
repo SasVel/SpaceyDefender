@@ -20,7 +20,7 @@ func _physics_process(delta):
 	
 	out_of_bounds()
 	move_and_slide()
-		
+	
 func out_of_bounds():
 	if position.y < entityPos.y - 400 || position.y > entityPos.y + 400 || position.x < entityPos.x - 700 || position.x > entityPos.x + 700:
 		queue_free()

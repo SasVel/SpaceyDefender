@@ -16,6 +16,7 @@ height = 20.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_v4lxc")
+MAX_SPEED = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_flcif")
@@ -28,7 +29,7 @@ drag_right_margin = 0.5
 drag_bottom_margin = 0.25
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.3
 one_shot = true
 
 [node name="MainCollisionBox" type="CollisionShape2D" parent="."]

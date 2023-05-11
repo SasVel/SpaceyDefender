@@ -23,6 +23,9 @@ position = Vector2(512, 126)
 [node name="EnemyMothership" parent="." instance=ExtResource("4_62mxo")]
 position = Vector2(143, 99)
 
+[node name="EnemyMothership2" parent="." instance=ExtResource("4_62mxo")]
+position = Vector2(621, 258)
+
 [node name="MouseObject" parent="." instance=ExtResource("3_wdygx")]
 
 [node name="UIElements" type="CanvasLayer" parent="."]
