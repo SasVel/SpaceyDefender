@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://25c02nr3ww76"]
+
+[ext_resource type="Script" path="res://UI/CreditsUI/CreditsUI.gd" id="1_2iy45"]
+[ext_resource type="PackedScene" uid="uid://e4b7gmvyttdu" path="res://Background/BackdropUI/BackdropUI.tscn" id="2_pl1mj"]
+[ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/MainMenuUI/SilverButton/SilverButton.tscn" id="3_mpf3b"]
+[ext_resource type="FontFile" uid="uid://bo46ww57g35wi" path="res://Font/PIXBOB LITE.ttf" id="4_y4iru"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8e0o"]
+line_spacing = 0.0
+font = ExtResource("4_y4iru")
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CreditsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2iy45")
+
+[node name="BackgroundForUI" parent="." instance=ExtResource("2_pl1mj")]
+
+[node name="SilverButton" parent="." instance=ExtResource("3_mpf3b")]
+layout_mode = 1
+offset_top = 55.0
+offset_bottom = 86.0
+
+[node name="Label" parent="SilverButton" index="0"]
+offset_top = -14.0
+offset_bottom = 7.0
+text = "BACK"
+
+[node name="CreditsText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -90.5
+offset_right = 78.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME DEVELOPMENT
+SasVel
+
+VISUAL ASSETS
+KENNEY
+PiiiXL ON ITCH
+Arcade island ON ITCH"
+label_settings = SubResource("LabelSettings_n8e0o")
+
+[connection signal="pressed" from="SilverButton" to="." method="_on_silver_button_pressed"]
+
+[editable path="SilverButton"]

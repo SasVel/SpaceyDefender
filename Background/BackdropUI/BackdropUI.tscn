@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://e4b7gmvyttdu"]
+
+[ext_resource type="Texture2D" uid="uid://q11xnt15kkxp" path="res://Background/space4_4-frames.png" id="1_glwee"]
+[ext_resource type="Texture2D" uid="uid://epyn0vgap4r8" path="res://Background/Planets/Terran.png" id="2_tclvm"]
+[ext_resource type="Texture2D" uid="uid://bpb322j5o3le4" path="res://Background/Planets/Baren.png" id="3_wekyd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvbw0"]
+texture = ExtResource("1_glwee")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_egr8p"]
+sources/0 = SubResource("TileSetAtlasSource_uvbw0")
+
+[node name="BackgroundForUI" type="Node2D"]
+
+[node name="BackgroundTiles" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_egr8p")
+cell_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65541, 0, 0, 131080, 0, 0, 65545, 0, 0, 196609, 0, 0, 327684, 0, 0, 458754, 0, 0, 458753, 0, 0, 393224, 0, 0, 524293, 0, 0, 262154, 0, 0, 458763, 0, 0, 65548, 0, 0, 262156, 0, 0, 524301, 0, 0, 393234, 0, 0, 327696, 0, 0, 393233, 0, 0, 65552, 0, 0, 589827, 0, 0, 589829, 0, 0, 131090, 0, 0, 65554, 0, 0, 589842, 0, 0, 589838, 0, 0, 589834, 0, 0, 589833, 0, 0, 589825, 0, 0, 65558, 0, 0, 131097, 0, 0, 65561, 0, 0, 65565, 0, 0, 65569, 0, 0, 131107, 0, 0, 65572, 0, 0, 65574, 0, 0, 196646, 0, 0, 393254, 0, 0, 655398, 0, 0, 917542, 0, 0, 1179686, 0, 0, 1376293, 0, 0, 1376289, 0, 0, 1376285, 0, 0, 1376282, 0, 0, 1376280, 0, 0, 1310743, 0, 0, 1376277, 0, 0, 1376274, 0, 0, 1376271, 0, 0, 1310732, 0, 0, 1376267, 0, 0, 1376264, 0, 0, 1376261, 0, 0, 1376258, 0, 0, 1376257, 0, 0, 1310721, 0, 0, 1048577, 0, 0, 1114113, 0, 0, 917505, 0, 0, 786433, 0, 0, 851972, 0, 0, 1114117, 0, 0, 1114121, 0, 0, 851976, 0, 0, 851980, 0, 0, 1114125, 0, 0, 851984, 0, 0, 851988, 0, 0, 589846, 0, 0, 327702, 0, 0, 393242, 0, 0, 327708, 0, 0, 327712, 0, 0, 393250, 0, 0, 655394, 0, 0, 852002, 0, 0, 1114146, 0, 0, 1114143, 0, 0, 1114140, 0, 0, 1114137, 0, 0, 1114134, 0, 0, 1114130, 0, 0, 1114129, 0, 0, 851992, 0, 0, 589850, 0, 0, 589854, 0, 0, 851998, 0, 0, 851996, 0, 0, 1376294, 0, 0)
+
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Planet1" type="Sprite2D" parent="Planets"]
+position = Vector2(111, 86)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_tclvm")
+
+[node name="Planet2" type="Sprite2D" parent="Planets"]
+position = Vector2(438.5, 229.5)
+scale = Vector2(1.60417, 1.60417)
+texture = ExtResource("3_wekyd")

@@ -15,7 +15,7 @@ radius = 11.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fl41r"]
 radius = 11.0
 
-[node name="EnemyShip" type="CharacterBody2D"]
+[node name="EnemyShip" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_hwvh7")
 rotation_speed = 5.0

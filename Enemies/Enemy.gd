@@ -18,6 +18,9 @@ enum {
 }
 var state = CHASE
 
+func _ready():
+	self.add_to_group("Enemies")
+
 func _physics_process(delta):
 	distanceToPlayer = global_position - GlobalInfo.playerPosition
 	d += delta
@@ -28,7 +31,6 @@ func _physics_process(delta):
 			chase_state()
 		ATTACK:
 			attack_state()
-	
 	move_and_slide()
 	
 func enemy_rotation():

@@ -18,7 +18,7 @@ radius = 24.0832
 [sub_resource type="CircleShape2D" id="CircleShape2D_afuv2"]
 radius = 24.0
 
-[node name="EnemyMothership" type="CharacterBody2D"]
+[node name="EnemyMothership" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_kj2qt")
 enemiesToSpawn = 2

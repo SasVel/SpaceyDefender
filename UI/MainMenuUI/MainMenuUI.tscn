@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://caxf1suiiqtk"]
+
+[ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="1_vf1jv"]
+[ext_resource type="PackedScene" uid="uid://e4b7gmvyttdu" path="res://Background/BackdropUI/BackdropUI.tscn" id="2_yvjn7"]
+[ext_resource type="FontFile" uid="uid://bo46ww57g35wi" path="res://Font/PIXBOB LITE.ttf" id="3_rpppi"]
+[ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/MainMenuUI/SilverButton/SilverButton.tscn" id="4_5ci45"]
+[ext_resource type="Script" path="res://UI/ColorBlinkingText.gd" id="4_ulect"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w36uf"]
+line_spacing = 0.0
+font = ExtResource("3_rpppi")
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vf1jv")
+
+[node name="BackgroundForUI" parent="." instance=ExtResource("2_yvjn7")]
+
+[node name="MainText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 55.0
+offset_right = 69.0
+offset_bottom = 107.0
+grow_horizontal = 2
+text = "SPACEY
+      DEFENDER"
+label_settings = SubResource("LabelSettings_w36uf")
+script = ExtResource("4_ulect")
+ColorHex = "#f28b30"
+
+[node name="BlinkTimer" type="Timer" parent="MainText"]
+autostart = true
+
+[node name="PlayBtn" parent="." instance=ExtResource("4_5ci45")]
+layout_mode = 1
+offset_left = -44.0
+offset_top = -36.0
+offset_right = 46.0
+offset_bottom = -6.0
+
+[node name="Label" parent="PlayBtn" index="0"]
+offset_left = -30.0
+offset_top = -15.0
+offset_right = 30.0
+offset_bottom = 9.0
+text = "PLAY"
+
+[node name="CreditsBtn" parent="." instance=ExtResource("4_5ci45")]
+layout_mode = 1
+offset_left = -42.0
+offset_top = 12.0
+offset_right = 42.0
+offset_bottom = 40.0
+
+[node name="Label" parent="CreditsBtn" index="0"]
+offset_top = -11.0
+offset_bottom = 7.0
+text = "CREDITS"
+
+[connection signal="timeout" from="MainText/BlinkTimer" to="MainText" method="_on_blink_timer_timeout"]
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]
+
+[editable path="PlayBtn"]
+[editable path="CreditsBtn"]
