@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://di7dk7ru8penn"]
+[gd_scene load_steps=11 format=3 uid="uid://di7dk7ru8penn"]
 
 [ext_resource type="Script" path="res://Enemies/Mothership/EnemyMothership.gd" id="1_kj2qt"]
 [ext_resource type="Texture2D" uid="uid://xroriadou0ne" path="res://Enemies/Mothership/MothershipSprite.png" id="2_1mdap"]
 [ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_4la7o"]
+[ext_resource type="PackedScene" uid="uid://6m24eds8vbpe" path="res://UI/EnemyUI/EnemyHealth/EnemyHealthUI.tscn" id="2_dnwfc"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="4_pgbpf"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="5_pnhkf"]
 
@@ -27,6 +28,11 @@ acceleration = 20
 rotation_speed = 1.0
 distance_for_attack = 360
 scoreOnKill = 400
+
+[node name="EnemyHealthUI" parent="." instance=ExtResource("2_dnwfc")]
+visible = false
+offset_top = 28.0
+offset_bottom = 28.0
 
 [node name="Stats" parent="." instance=ExtResource("2_4la7o")]
 max_health = 5

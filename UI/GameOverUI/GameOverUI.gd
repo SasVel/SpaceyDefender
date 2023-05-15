@@ -17,7 +17,11 @@ func on_no_health():
 	self.visible = true
 
 func _on_restart_btn_pressed():
-	get_tree().reload_current_scene()
 	GlobalInfo.score = 0
+	GlobalInfo.waveCount = 1
 	PlayerStats.health = PlayerStats.max_health
+	for enemy in get_tree().get_nodes_in_group("Enemies"):
+		enemy.queue_free()
+
+	get_tree().reload_current_scene()
 	get_tree().paused = false

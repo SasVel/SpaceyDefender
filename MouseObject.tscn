@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MouseObject.gd" id="1_ybs2i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3c34"]
-radius = 62.0322
+radius = 50.01
 
 [node name="MouseObject" type="Area2D"]
 collision_layer = 32

@@ -4,6 +4,7 @@
 
 [node name="PlayerBullet" instance=ExtResource("1_o8dln")]
 collision_mask = 0
+SPEED = 440
 
 [node name="HitBox" parent="." index="2"]
 collision_layer = 2

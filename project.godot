@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.0", "Forward Plus")
 
 PlayerStats="*res://Player/PlayerStats.tscn"
 GlobalInfo="*res://GlobalInfo.tscn"
+WaveController="*res://Waves/WaveController.tscn"
 
 [debug]
 

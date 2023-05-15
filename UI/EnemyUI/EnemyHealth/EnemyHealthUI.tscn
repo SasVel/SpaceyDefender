@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://6m24eds8vbpe"]
+
+[ext_resource type="Texture2D" uid="uid://dighi2s7st0kh" path="res://UI/EnemyUI/EnemyHealth/enemy-progress-bar-under.png" id="1_eulg1"]
+[ext_resource type="Texture2D" uid="uid://d1h3bhrbo55qf" path="res://UI/EnemyUI/EnemyHealth/enemy-progress-bar-over.png" id="2_bk0q6"]
+
+[node name="EnemyHealthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = -2.0
+offset_right = 24.0
+offset_bottom = 5.0
+grow_horizontal = 2
+texture_under = ExtResource("1_eulg1")
+texture_progress = ExtResource("2_bk0q6")
