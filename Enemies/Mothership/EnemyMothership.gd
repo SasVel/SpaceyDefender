@@ -20,9 +20,9 @@ func chase_state():
 
 func _on_spawn_timer_timeout():
 	for i in enemiesToSpawn:
-		var randAbsPosRange = get_random_absolute_enemy_pos()
+		var randAbsPosRange = get_random_absolute_pos()
 		while randAbsPosRange == lastSpawnPosition:
-			randAbsPosRange = get_random_absolute_enemy_pos()
+			randAbsPosRange = get_random_absolute_pos()
 		enemy_spawn(randAbsPosRange)
 	
 	
@@ -32,7 +32,7 @@ func enemy_spawn(enemyPos):
 	get_tree().get_root().get_child(2).add_child(enemy)
 	lastSpawnPosition = enemy.position
 	
-func get_random_absolute_enemy_pos():
+func get_random_absolute_pos():
 	var randRelativePosRange = Vector2(randi_range(0, spawnRange.x), randi_range(0, spawnRange.y))
 	
 	if randRelativePosRange.x < spawnRange.x / 2:

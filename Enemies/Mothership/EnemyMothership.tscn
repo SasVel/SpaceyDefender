@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://di7dk7ru8penn"]
+[gd_scene load_steps=12 format=3 uid="uid://di7dk7ru8penn"]
 
 [ext_resource type="Script" path="res://Enemies/Mothership/EnemyMothership.gd" id="1_kj2qt"]
 [ext_resource type="Texture2D" uid="uid://xroriadou0ne" path="res://Enemies/Mothership/MothershipSprite.png" id="2_1mdap"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6m24eds8vbpe" path="res://UI/EnemyUI/EnemyHealth/EnemyHealthUI.tscn" id="2_dnwfc"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="4_pgbpf"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="5_pnhkf"]
+[ext_resource type="PackedScene" uid="uid://desiwqposg2bd" path="res://UI/EnemyIndication/EnemyIndicator.tscn" id="7_613q4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qs3o"]
 size = Vector2(50, 50)
@@ -68,9 +69,15 @@ damage = 7
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_afuv2")
 
+[node name="EnemyIndicator" parent="." instance=ExtResource("7_613q4")]
+
+[node name="IndicatorNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="screen_entered" from="IndicatorNotifier" to="EnemyIndicator" method="_on_indicator_notifier_screen_entered"]
+[connection signal="screen_exited" from="IndicatorNotifier" to="EnemyIndicator" method="_on_indicator_notifier_screen_exited"]
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://UI/GameOverUI/GameOverUI.gd" id="1_5jg2x"]
 [ext_resource type="FontFile" uid="uid://bo46ww57g35wi" path="res://Font/PIXBOB LITE.ttf" id="2_046j3"]
-[ext_resource type="Texture2D" uid="uid://dccmnutwbpr5e" path="res://UI/MainMenuUI/SilverButton/[1] Normal.png" id="2_tl1eh"]
-[ext_resource type="Texture2D" uid="uid://dl62enq7xycua" path="res://UI/MainMenuUI/SilverButton/[2] Clicked.png" id="3_60mh0"]
-[ext_resource type="Texture2D" uid="uid://bm1twp6n8qqhm" path="res://UI/MainMenuUI/SilverButton/[3] Hover.png" id="4_v8vhk"]
+[ext_resource type="Texture2D" uid="uid://dccmnutwbpr5e" path="res://UI/SilverButton/[1] Normal.png" id="2_tl1eh"]
+[ext_resource type="Texture2D" uid="uid://dl62enq7xycua" path="res://UI/SilverButton/[2] Clicked.png" id="3_60mh0"]
+[ext_resource type="Texture2D" uid="uid://bm1twp6n8qqhm" path="res://UI/SilverButton/[3] Hover.png" id="4_v8vhk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b8efr"]
 font = ExtResource("2_046j3")
