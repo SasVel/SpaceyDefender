@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://di7dk7ru8penn"]
+[gd_scene load_steps=13 format=3 uid="uid://di7dk7ru8penn"]
 
 [ext_resource type="Script" path="res://Enemies/Mothership/EnemyMothership.gd" id="1_kj2qt"]
 [ext_resource type="Texture2D" uid="uid://xroriadou0ne" path="res://Enemies/Mothership/MothershipSprite.png" id="2_1mdap"]
 [ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_4la7o"]
 [ext_resource type="PackedScene" uid="uid://6m24eds8vbpe" path="res://UI/EnemyUI/EnemyHealth/EnemyHealthUI.tscn" id="2_dnwfc"]
+[ext_resource type="PackedScene" uid="uid://cqylwg534h38e" path="res://Effects/Explosion_1/Explosion_1.tscn" id="2_mcxm0"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="4_pgbpf"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="5_pnhkf"]
 [ext_resource type="PackedScene" uid="uid://desiwqposg2bd" path="res://UI/EnemyIndication/EnemyIndicator.tscn" id="7_613q4"]
@@ -29,6 +30,7 @@ acceleration = 20
 rotation_speed = 1.0
 distance_for_attack = 360
 scoreOnKill = 400
+DeathEffect = ExtResource("2_mcxm0")
 
 [node name="EnemyHealthUI" parent="." instance=ExtResource("2_dnwfc")]
 visible = false

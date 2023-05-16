@@ -7,16 +7,17 @@ class_name Bullet
 @onready var entityPos = entity.position
 @onready var entityRot = entity.rotation
 @onready var entityVel = entity.velocity
-
+@onready var DeathEffect = preload("res://Effects/ShootPop/ShootPop.tscn")
+var vector = Vector2.ZERO
 
 func _ready():
 	rotation = entityRot
 	position = entityPos
 
 func _physics_process(delta):
-	var input_vector = Vector2(cos(rotation + deg_to_rad(-90)), sin(rotation + deg_to_rad(-90)))
+	vector = Vector2(cos(rotation + deg_to_rad(-90)), sin(rotation + deg_to_rad(-90)))
 	
-	velocity = input_vector * SPEED + entityVel
+	velocity = vector * SPEED + entityVel
 	
 	out_of_bounds()
 	move_and_slide()
@@ -26,4 +27,8 @@ func out_of_bounds():
 		queue_free()
 
 func _on_hurt_box_area_entered(area):
+	var deathEffect = DeathEffect.instantiate()
+	deathEffect.position = self.position + transform.basis_xform(Vector2(0, -15))
+	deathEffect.rotation = self.rotation + deg_to_rad(90)
+	get_tree().get_root().add_child(deathEffect)
 	queue_free()

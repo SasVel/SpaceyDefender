@@ -9,6 +9,7 @@ var d = 0.0
 @export var distance_for_attack = 200
 @export var attack_rotation_speed = 1.0
 @export var scoreOnKill = 100
+@export var DeathEffect : Resource
 var isRightAttackRotation = randi_range(0, 2) == 0 if true else false
 var distanceToPlayer = Vector2.ZERO
 
@@ -49,3 +50,8 @@ func attack_state():
 		
 	if abs(distanceToPlayer).x > distance_for_attack || abs(distanceToPlayer).y > distance_for_attack:
 		state = CHASE
+		
+func death_effect():
+	var deathEffect = DeathEffect.instantiate()
+	deathEffect.position = self.position
+	get_tree().get_root().add_child(deathEffect)

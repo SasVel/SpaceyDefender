@@ -31,4 +31,5 @@ func shoot():
 func _on_stats_no_health():
 	GlobalInfo.enemiesKilled += 1
 	GlobalInfo.score += scoreOnKill
+	death_effect()
 	queue_free()

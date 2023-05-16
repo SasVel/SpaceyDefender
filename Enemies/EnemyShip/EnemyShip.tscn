@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://drpuks8r7wifr"]
+[gd_scene load_steps=10 format=3 uid="uid://drpuks8r7wifr"]
 
 [ext_resource type="Script" path="res://Enemies/EnemyShip/EnemyShip.gd" id="1_hwvh7"]
 [ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="2_djy5u"]
+[ext_resource type="PackedScene" uid="uid://bnvaryoi0a5db" path="res://Effects/Explosion_2/Explosion_2.tscn" id="2_x73h4"]
 [ext_resource type="Texture2D" uid="uid://dpssaijuwg3ed" path="res://Enemies/EnemyShip/EnemySprite.png" id="3_6ojy7"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="4_pfiib"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="5_yuc51"]
@@ -20,6 +21,7 @@ collision_layer = 4
 script = ExtResource("1_hwvh7")
 rotation_speed = 5.0
 distance_for_attack = 180
+DeathEffect = ExtResource("2_x73h4")
 
 [node name="Stats" parent="." instance=ExtResource("2_djy5u")]
 max_health = 2

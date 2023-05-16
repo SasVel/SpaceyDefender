@@ -19,9 +19,9 @@ func spawn_enemies():
 
 func spawn_mothership():
 	var randomQuadrant = Vector2(-1 if randi_range(0, 1) == 0 else 1,-1 if randi_range(0, 1) == 0 else 1)
-	var spawnMinRangeX = GlobalInfo.playerPosition.x + (currScreenSize.x * randomQuadrant.x)
-	var spawnMinRangeY = GlobalInfo.playerPosition.y + (currScreenSize.y * randomQuadrant.y)
-	var randomPosition = Vector2(spawnMinRangeX, spawnMinRangeY)
+	var spawnPosX = GlobalInfo.playerPosition.x + (currScreenSize.x * randomQuadrant.x) + randi_range(-100, 100)
+	var spawnPosY = GlobalInfo.playerPosition.y + (currScreenSize.y * randomQuadrant.y) + randi_range(-100, 100)
+	var randomPosition = Vector2(spawnPosX, spawnPosY)
 	var mothership = Mothership.instantiate()
 	mothership.position = randomPosition
 	get_tree().get_root().add_child(mothership)

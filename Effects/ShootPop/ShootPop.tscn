@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdgc1271x7bdd"]
+
+[ext_resource type="Texture2D" uid="uid://bltwqmwab18yd" path="res://Effects/ShootPop/FX046_01.png" id="1_uagv3"]
+[ext_resource type="Texture2D" uid="uid://dq0re4ee4l8e2" path="res://Effects/ShootPop/FX046_02.png" id="2_64x2g"]
+[ext_resource type="Texture2D" uid="uid://chilwhdgvc2so" path="res://Effects/ShootPop/FX046_03.png" id="3_ndqhs"]
+[ext_resource type="Script" path="res://Effects/Effect.gd" id="4_2t1il"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vsgr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uagv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_64x2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ndqhs")
+}],
+"loop": false,
+"name": &"Animate",
+"speed": 10.0
+}]
+
+[node name="ShootPop" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0vsgr")
+animation = &"Animate"
+autoplay = "Animate"
+frame_progress = 0.337885
+script = ExtResource("4_2t1il")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
