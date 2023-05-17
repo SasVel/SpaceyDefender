@@ -18,6 +18,7 @@ func attack_state():
 	super()
 
 func _on_hurt_box_area_entered(area):
+	super(area)
 	stats.health -= area.damage
 
 func _on_shoot_timer_timeout():

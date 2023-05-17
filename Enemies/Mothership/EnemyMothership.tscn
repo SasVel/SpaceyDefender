@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="5_pnhkf"]
 [ext_resource type="PackedScene" uid="uid://desiwqposg2bd" path="res://UI/EnemyIndication/EnemyIndicator.tscn" id="7_613q4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qs3o"]
-size = Vector2(50, 50)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb482"]
+radius = 24.0208
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4rax"]
 size = Vector2(144, 144)
@@ -32,34 +32,29 @@ distance_for_attack = 360
 scoreOnKill = 400
 DeathEffect = ExtResource("2_mcxm0")
 
-[node name="EnemyHealthUI" parent="." instance=ExtResource("2_dnwfc")]
-visible = false
-offset_top = 28.0
-offset_bottom = 28.0
-
 [node name="Stats" parent="." instance=ExtResource("2_4la7o")]
 max_health = 5
+
+[node name="EnemyHealthUI" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("2_dnwfc")]
+stats = NodePath("../Stats")
 
 [node name="MainSprite" type="Sprite2D" parent="."]
 scale = Vector2(1.5625, 1.5625)
 texture = ExtResource("2_1mdap")
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_1qs3o")
+shape = SubResource("CircleShape2D_kb482")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 4.0
 
 [node name="SpawnArea" type="Area2D" parent="."]
-visible = false
 modulate = Color(1, 0.564706, 0.964706, 0.360784)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
 shape = SubResource("RectangleShape2D_f4rax")
 
 [node name="HurtBox" parent="." instance=ExtResource("4_pgbpf")]
-visible = false
 collision_layer = 16
 collision_mask = 66
 
@@ -67,7 +62,6 @@ collision_mask = 66
 shape = SubResource("CircleShape2D_uvh2o")
 
 [node name="HitBox" parent="." instance=ExtResource("5_pnhkf")]
-visible = false
 collision_layer = 4
 collision_mask = 258
 damage = 7
@@ -78,7 +72,6 @@ shape = SubResource("CircleShape2D_afuv2")
 [node name="EnemyIndicator" parent="." instance=ExtResource("7_613q4")]
 
 [node name="IndicatorNotifier" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
 scale = Vector2(2.3, 2.3)
 
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]

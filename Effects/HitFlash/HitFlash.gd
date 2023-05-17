@@ -8,4 +8,5 @@ func _ready():
 	target.self_modulate = Color(10, 10,10)
 
 func _on_flash_timer_timeout():
-	target.self_modulate = Color(1, 1,1)
+	if target != null:
+		target.self_modulate = Color(1, 1, 1)
