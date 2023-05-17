@@ -12,6 +12,7 @@ var d = 0.0
 @export var DeathEffect : Resource
 var isRightAttackRotation = randi_range(0, 2) == 0 if true else false
 var distanceToPlayer = Vector2.ZERO
+@onready var HitFlash = load("res://Effects/HitFlash/HitFlash.tscn")
 
 enum {
 	CHASE,
@@ -21,6 +22,7 @@ var state = CHASE
 
 func _ready():
 	self.add_to_group("Enemies")
+	HitFlash.target = self.get_node("MainSprite")
 
 func _physics_process(delta):
 	distanceToPlayer = global_position - GlobalInfo.playerPosition
@@ -50,7 +52,9 @@ func attack_state():
 		
 	if abs(distanceToPlayer).x > distance_for_attack || abs(distanceToPlayer).y > distance_for_attack:
 		state = CHASE
-		
+func _on_hurt_box_area_entered(area):
+	var hitFlash = HitFlash.instantiate()
+
 func death_effect():
 	var deathEffect = DeathEffect.instantiate()
 	deathEffect.position = self.position
