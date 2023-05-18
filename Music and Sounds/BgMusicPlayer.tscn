@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4f1de4smwd82"]
+
+[ext_resource type="AudioStream" uid="uid://bpqor8wa5nvs2" path="res://Music and Sounds/Music/Sci-Fi 3 Loop.ogg" id="2_odj68"]
+[ext_resource type="AudioStream" uid="uid://dwk5jp64toxco" path="res://Music and Sounds/Music/Sci-Fi 1 Loop.ogg" id="2_yocgj"]
+[ext_resource type="AudioStream" uid="uid://bhhvowuflbbb0" path="res://Music and Sounds/Music/Sci-Fi 8 Loop.ogg" id="3_82ims"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7wpjr"]
+streams_count = 3
+random_pitch = 2.0
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("2_yocgj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_odj68")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_82ims")
+stream_2/weight = 1.0
+
+[node name="BgMusicPlayer" type="Node2D"]
+process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_7wpjr")
+autoplay = true
+bus = &"Music"

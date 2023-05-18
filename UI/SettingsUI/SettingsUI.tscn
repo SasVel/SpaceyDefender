@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfhfvoqkh6yat"]
+
+[ext_resource type="Script" path="res://UI/SettingsUI/SettingsUI.gd" id="1_0hsky"]
+[ext_resource type="PackedScene" uid="uid://e4b7gmvyttdu" path="res://Background/BackdropUI/BackdropUI.tscn" id="2_g0qng"]
+[ext_resource type="PackedScene" uid="uid://bv3m05gqpshp8" path="res://UI/SettingsUI/MusicSettingsUI.tscn" id="3_du0h5"]
+[ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/MainMenuUI/SilverButton/SilverButton.tscn" id="4_7ylf0"]
+
+[node name="SettingsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0hsky")
+
+[node name="BackgroundForUI" parent="." instance=ExtResource("2_g0qng")]
+
+[node name="MusicSettingsUI" parent="." instance=ExtResource("3_du0h5")]
+layout_mode = 1
+
+[node name="BackBtn" parent="." instance=ExtResource("4_7ylf0")]
+layout_mode = 1
+offset_top = 41.0
+offset_bottom = 71.0
+
+[node name="Label" parent="BackBtn" index="0"]
+text = "Exit"
+
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+
+[editable path="BackBtn"]

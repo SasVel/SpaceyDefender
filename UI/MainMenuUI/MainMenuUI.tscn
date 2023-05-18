@@ -59,19 +59,27 @@ text = "PLAY"
 
 [node name="CreditsBtn" parent="." instance=ExtResource("4_5ci45")]
 layout_mode = 1
-offset_left = -42.0
-offset_top = 12.0
-offset_right = 42.0
-offset_bottom = 40.0
+offset_top = 8.0
+offset_bottom = 38.0
 
 [node name="Label" parent="CreditsBtn" index="0"]
 offset_top = -11.0
 offset_bottom = 7.0
 text = "CREDITS"
 
+[node name="SettingsBtn" parent="." instance=ExtResource("4_5ci45")]
+layout_mode = 1
+offset_top = 51.0
+offset_bottom = 81.0
+
+[node name="Label" parent="SettingsBtn" index="0"]
+text = "settings"
+
 [connection signal="timeout" from="MainText/BlinkTimer" to="MainText" method="_on_blink_timer_timeout"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
 
 [editable path="PlayBtn"]
 [editable path="CreditsBtn"]
+[editable path="SettingsBtn"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2p2d4l3hpxwp"]
+[gd_scene load_steps=10 format=3 uid="uid://b2p2d4l3hpxwp"]
 
 [ext_resource type="Texture2D" uid="uid://dccgwho4vtwsg" path="res://Player/PlayerSprite.png" id="1_flcif"]
 [ext_resource type="PackedScene" uid="uid://divtshllby660" path="res://World/MainCamera.tscn" id="1_gv6ag"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_v4lxc"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_6oedw"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="5_2ec8o"]
+[ext_resource type="PackedScene" uid="uid://bxdro1jitseuk" path="res://Music and Sounds/Sounds/Shooting/ShootSoundPlayer.tscn" id="6_7lap8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jeose"]
 height = 20.0
@@ -51,6 +52,8 @@ collision_mask = 516
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_o7rip")
+
+[node name="ShootSoundPlayer" parent="." instance=ExtResource("6_7lap8")]
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -2,6 +2,7 @@ extends Enemy
 
 @onready var Bullet = preload("res://Bullet/EnemyBullet/EnemyBullet.tscn")
 @onready var shootTimer = $ShootTimer
+@onready var shootSound = $ShootSoundPlayer/AudioStreamPlayer2D
 @onready var stats = $Stats
 	
 func chase_state():
@@ -25,6 +26,7 @@ func _on_shoot_timer_timeout():
 	shoot()
 	
 func shoot():
+	shootSound.play()
 	var bullet = Bullet.instantiate()
 	bullet.entity = self
 	get_tree().get_root().get_child(1).add_child(bullet)

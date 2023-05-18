@@ -18,6 +18,7 @@ var currentState = state.IDLE
 @onready var Bullet = preload("res://Bullet/PlayerBullet/PlayerBullet.tscn")
 var canShoot = true;
 @onready var shootTimer = $ShootTimer
+@onready var shootSound = $ShootSoundPlayer/AudioStreamPlayer2D 
 
 func _ready():
 	PlayerStats.no_health.connect(on_no_health)
@@ -63,6 +64,8 @@ func shoot_action():
 		get_tree().get_root().get_child(1).add_child(bullet)
 		canShoot = false
 		shootTimer.start()
+		shootSound.play()
+		
 
 func _on_shoot_timer_timeout():
 	canShoot = true

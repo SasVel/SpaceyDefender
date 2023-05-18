@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnvaryoi0a5db"]
+[gd_scene load_steps=18 format=3 uid="uid://bnvaryoi0a5db"]
 
 [ext_resource type="Texture2D" uid="uid://obb6ksjc10c6" path="res://Effects/Explosion_2/1_1.png" id="1_ig5cb"]
 [ext_resource type="Texture2D" uid="uid://cne48u17khafs" path="res://Effects/Explosion_2/1_3.png" id="2_ibsf3"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cc5sto2utw12p" path="res://Effects/Explosion_2/1_24.png" id="12_ws3mw"]
 [ext_resource type="Texture2D" uid="uid://cb5iw7amgakf6" path="res://Effects/Explosion_2/1_27.png" id="13_vqk8f"]
 [ext_resource type="Texture2D" uid="uid://b5hv0ae645jvt" path="res://Effects/Explosion_2/1_31.png" id="14_swvpc"]
-[ext_resource type="Script" path="res://Effects/Effect.gd" id="15_weuuo"]
+[ext_resource type="Script" path="res://Effects/Explosion_2/Explosion_2.gd" id="15_j6cyr"]
+[ext_resource type="PackedScene" uid="uid://lvae6igfom6f" path="res://Music and Sounds/Sounds/Explosion/ExplosionLightSoundPlayer.tscn" id="16_ve5ld"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vesa1"]
 animations = [{
@@ -74,6 +75,9 @@ animation = &"Animate"
 autoplay = "Animate"
 frame = 5
 frame_progress = 0.856528
-script = ExtResource("15_weuuo")
+script = ExtResource("15_j6cyr")
+
+[node name="ExplosionLightSoundPlayer" parent="." instance=ExtResource("16_ve5ld")]
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="ready" from="ExplosionLightSoundPlayer" to="." method="_on_explosion_light_sound_player_ready"]

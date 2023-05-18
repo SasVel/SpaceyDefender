@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bufsdgpkqslsa"
+path="res://.godot/imported/mixkit-arcade-game-explosion-1699.ogg-086f31b31c8b2c1a6d39b0490ae35eeb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Sounds/Explosion/mixkit-arcade-game-explosion-1699.ogg"
+dest_files=["res://.godot/imported/mixkit-arcade-game-explosion-1699.ogg-086f31b31c8b2c1a6d39b0490ae35eeb.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

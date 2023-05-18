@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdx28r5osiryj"
+path="res://.godot/imported/mixkit-short-laser-gun-shot-1670.wav-e3ca53c7479c7d40004f37be3f34ffc9.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Sounds/Shooting/mixkit-short-laser-gun-shot-1670.wav"
+dest_files=["res://.godot/imported/mixkit-short-laser-gun-shot-1670.wav-e3ca53c7479c7d40004f37be3f34ffc9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

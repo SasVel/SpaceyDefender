@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.0", "Forward Plus")
 PlayerStats="*res://Player/PlayerStats.tscn"
 GlobalInfo="*res://GlobalInfo.tscn"
 WaveController="*res://Waves/WaveController.tscn"
+BgMusicPlayer="*res://Music and Sounds/BgMusicPlayer.tscn"
 
 [debug]
 
@@ -37,6 +38,23 @@ mouse_cursor/custom_image="res://Crosshair/crosshair_sprite.png"
 [dotnet]
 
 project/assembly_name="SpaceyInvaders"
+
+[importer_defaults]
+
+mp3={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0,
+"loop": true,
+"loop_offset": 0
+}
+oggvorbisstr={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0,
+"loop": true,
+"loop_offset": 0
+}
 
 [input]
 

@@ -13,6 +13,7 @@ var vector = Vector2.ZERO
 func _ready():
 	rotation = entityRot
 	position = entityPos
+	
 
 func _physics_process(delta):
 	vector = Vector2(cos(rotation + deg_to_rad(-90)), sin(rotation + deg_to_rad(-90)))

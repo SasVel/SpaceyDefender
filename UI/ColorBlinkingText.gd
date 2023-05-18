@@ -5,6 +5,9 @@ extends Label
 @export var ColorHex : String
 var isColored: bool = false
 
+func _ready():
+	blinkTimer.autostart = true
+
 func _on_blink_timer_timeout():
 	if isColored == false:
 		self.label_settings.font_color = ColorHex

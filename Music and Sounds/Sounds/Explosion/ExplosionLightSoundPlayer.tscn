@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://lvae6igfom6f"]
+
+[ext_resource type="AudioStream" uid="uid://bufsdgpkqslsa" path="res://Music and Sounds/Sounds/Explosion/mixkit-arcade-game-explosion-1699.ogg" id="1_35wq2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pbf2m"]
+streams_count = 1
+stream_0/stream = ExtResource("1_35wq2")
+stream_0/weight = 1.0
+
+[node name="ExplosionLightSoundPlayer" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_pbf2m")
+pitch_scale = 2.0
+bus = &"SFX"

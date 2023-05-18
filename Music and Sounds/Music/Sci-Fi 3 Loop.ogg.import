@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpqor8wa5nvs2"
+path="res://.godot/imported/Sci-Fi 3 Loop.ogg-cd23b9b44031cf1d74e7f23618c2a6de.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Music/Sci-Fi 3 Loop.ogg"
+dest_files=["res://.godot/imported/Sci-Fi 3 Loop.ogg-cd23b9b44031cf1d74e7f23618c2a6de.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

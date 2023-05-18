@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cegjlefmdss8"]
+[gd_scene load_steps=8 format=3 uid="uid://cegjlefmdss8"]
 
 [ext_resource type="Script" path="res://UI/PauseUI/PauseUI.gd" id="1_40tjw"]
 [ext_resource type="FontFile" uid="uid://bo46ww57g35wi" path="res://Font/PIXBOB LITE.ttf" id="1_jwu67"]
+[ext_resource type="PackedScene" uid="uid://bv3m05gqpshp8" path="res://UI/SettingsUI/MusicSettingsUI.tscn" id="2_ws1ov"]
 [ext_resource type="Script" path="res://UI/BlinkingText.gd" id="3_7i85e"]
+[ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/MainMenuUI/SilverButton/SilverButton.tscn" id="5_sxdaf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ocmqh"]
 font = ExtResource("1_jwu67")
@@ -26,6 +28,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40tjw")
 
+[node name="MusicSettingsUI" parent="." instance=ExtResource("2_ws1ov")]
+layout_mode = 1
+
+[node name="MusicSlider" parent="MusicSettingsUI" index="0"]
+offset_left = -58.0
+offset_top = -26.0
+offset_right = 66.0
+offset_bottom = -10.0
+
+[node name="SfxSlider" parent="MusicSettingsUI" index="1"]
+offset_left = -58.0
+offset_top = 29.0
+offset_right = 66.0
+offset_bottom = 45.0
+
 [node name="PauseLabel" type="Label" parent="."]
 process_mode = 3
 layout_mode = 1
@@ -35,9 +52,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -38.0
-offset_top = -36.0
+offset_top = -126.0
 offset_right = 38.0
-offset_bottom = -4.0
+offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PAUSED"
@@ -58,10 +75,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.0
-offset_top = -0.5
-offset_right = 47.0
-offset_bottom = 22.5
+offset_left = -74.5
+offset_top = -90.5
+offset_right = 74.5
+offset_bottom = -67.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "PRESS ESC TO CONTINUE"
@@ -73,5 +90,27 @@ process_mode = 3
 wait_time = 0.6
 autostart = true
 
+[node name="RestartBtn" parent="." instance=ExtResource("5_sxdaf")]
+layout_mode = 1
+offset_top = 67.0
+offset_bottom = 97.0
+
+[node name="Label" parent="RestartBtn" index="0"]
+text = "restart"
+
+[node name="MainMenuBtn" parent="." instance=ExtResource("5_sxdaf")]
+layout_mode = 1
+offset_top = 106.0
+offset_bottom = 136.0
+
+[node name="Label" parent="MainMenuBtn" index="0"]
+text = "menu"
+
 [connection signal="timeout" from="PauseLabel/BlinkTimer" to="PauseLabel" method="_on_blink_timer_timeout"]
 [connection signal="timeout" from="EscLabel/BlinkTimer" to="EscLabel" method="_on_blink_timer_timeout"]
+[connection signal="pressed" from="RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+
+[editable path="MusicSettingsUI"]
+[editable path="RestartBtn"]
+[editable path="MainMenuBtn"]
