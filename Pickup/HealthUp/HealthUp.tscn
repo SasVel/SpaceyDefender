@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp6tsjeb3gnbd"]
+
+[ext_resource type="Texture2D" uid="uid://bw6d1vrebml7o" path="res://Pickup/HealthUp/HealthUp.png" id="1_i7t1k"]
+
+[sub_resource type="Animation" id="Animation_fv4dv"]
+resource_name = "HealthUpAnimation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_syyeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukc1x"]
+_data = {
+"HealthUpAnimation": SubResource("Animation_fv4dv"),
+"RESET": SubResource("Animation_syyeu")
+}
+
+[node name="HealthUp" type="Node2D"]
+
+[node name="Mainsprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_i7t1k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Mainsprite")
+autoplay = "HealthUpAnimation"
+libraries = {
+"": SubResource("AnimationLibrary_ukc1x")
+}

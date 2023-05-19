@@ -25,3 +25,6 @@ func _on_restart_btn_pressed():
 
 	get_tree().reload_current_scene()
 	get_tree().paused = false
+
+func _on_main_menu_btn_pressed():
+	get_tree().change_scene_to_file("res://UI/MainMenuUI/MainMenuUI.tscn")

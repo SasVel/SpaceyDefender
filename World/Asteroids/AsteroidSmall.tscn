@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://du6vccyhhuvkf"]
+
+[ext_resource type="Texture2D" uid="uid://dpwxuhhtslfqh" path="res://World/Asteroids/Asteroid_small.png" id="1_gwvhe"]
+
+[node name="AsteroidSmall" type="Node2D"]
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_gwvhe")

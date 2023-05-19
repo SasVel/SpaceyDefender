@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxognfcb5yu15"]
+[gd_scene load_steps=11 format=3 uid="uid://bxognfcb5yu15"]
 
 [ext_resource type="Script" path="res://World/Main.gd" id="1_jp0ly"]
 [ext_resource type="PackedScene" uid="uid://b2p2d4l3hpxwp" path="res://Player/Player.tscn" id="2_12tsq"]
@@ -10,8 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://cegjlefmdss8" path="res://UI/PauseUI/PauseUI.tscn" id="7_bt7kw"]
 [ext_resource type="PackedScene" uid="uid://c7pl5lp5xye2x" path="res://UI/GameOverUI/GameOverUI.tscn" id="8_7k87c"]
 
+[sub_resource type="Environment" id="Environment_nsap3"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 2.0
+glow_blend_mode = 0
+glow_hdr_threshold = 2.0
+glow_hdr_luminance_cap = 140.0
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jp0ly")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nsap3")
 
 [node name="Background" parent="." instance=ExtResource("2_jkmt5")]
 
