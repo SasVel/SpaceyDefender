@@ -20,6 +20,7 @@ PlayerStats="*res://Player/PlayerStats.tscn"
 GlobalInfo="*res://GlobalInfo.tscn"
 WaveController="*res://Waves/WaveController.tscn"
 BgMusicPlayer="*res://Music and Sounds/BgMusicPlayer.tscn"
+GlobalShaders="*res://Shaders/GlobalShaders.tscn"
 
 [debug]
 

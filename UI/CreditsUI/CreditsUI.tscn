@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://25c02nr3ww76"]
+[gd_scene load_steps=7 format=3 uid="uid://25c02nr3ww76"]
 
 [ext_resource type="Script" path="res://UI/CreditsUI/CreditsUI.gd" id="1_2iy45"]
 [ext_resource type="PackedScene" uid="uid://e4b7gmvyttdu" path="res://Background/BackdropUI/BackdropUI.tscn" id="2_pl1mj"]
 [ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/MainMenuUI/SilverButton/SilverButton.tscn" id="3_mpf3b"]
 [ext_resource type="FontFile" uid="uid://bo46ww57g35wi" path="res://Font/PIXBOB LITE.ttf" id="4_y4iru"]
+[ext_resource type="PackedScene" uid="uid://cejdpg64wcr5k" path="res://Shaders/RetroTvShader.tscn" id="5_2md1e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n8e0o"]
 line_spacing = 0.0
@@ -54,6 +55,10 @@ KENNEY
 PiiiXL ON ITCH
 Arcade island ON ITCH"
 label_settings = SubResource("LabelSettings_n8e0o")
+
+[node name="RetroTvShader" parent="." instance=ExtResource("5_2md1e")]
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="pressed" from="SilverButton" to="." method="_on_silver_button_pressed"]
 

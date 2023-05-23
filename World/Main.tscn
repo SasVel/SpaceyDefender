@@ -26,9 +26,6 @@ environment = SubResource("Environment_nsap3")
 
 [node name="Background" parent="." instance=ExtResource("2_jkmt5")]
 
-[node name="Player" parent="." instance=ExtResource("2_12tsq")]
-position = Vector2(320, 182)
-
 [node name="MouseObject" parent="." instance=ExtResource("3_wdygx")]
 
 [node name="UIElements" type="CanvasLayer" parent="."]
@@ -42,3 +39,6 @@ position = Vector2(320, 182)
 [node name="PauseUI" parent="UIElements" instance=ExtResource("7_bt7kw")]
 
 [node name="GameOverUI" parent="UIElements" instance=ExtResource("8_7k87c")]
+
+[node name="Player" parent="." instance=ExtResource("2_12tsq")]
+position = Vector2(320, 182)
