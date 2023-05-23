@@ -2,6 +2,7 @@
 shader_type canvas_item;
 
 uniform float scanline_count : hint_range(0, 1800) = 50.0;
+uniform float opacity = 1.0;
 uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 
 //vec2 uv_curve(vec2 uv)
@@ -36,5 +37,5 @@ void fragment()
 	vec4 scan_line = vec4(vec3(pow(s, 0.25)), 1.0);
 	
 	
-	COLOR = vec4(r, g, b, 1.0) * scan_line;
+	COLOR = vec4(r, g, b, opacity) * scan_line;
 }

@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://joqsn1oign1n"]
+[gd_scene load_steps=3 format=3 uid="uid://joqsn1oign1n"]
 
 [ext_resource type="PackedScene" uid="uid://cejdpg64wcr5k" path="res://Shaders/RetroTvShader.tscn" id="1_quchw"]
+[ext_resource type="PackedScene" uid="uid://ci2tjdt7xrcrh" path="res://Shaders/VignetteShader.tscn" id="2_r5ndr"]
 
 [node name="GlobalShaders" type="CanvasLayer"]
 process_mode = 3
 layer = 10
 
 [node name="RetroTvShader" parent="." instance=ExtResource("1_quchw")]
+
+[node name="VignetteShader" parent="." instance=ExtResource("2_r5ndr")]
+mouse_filter = 2

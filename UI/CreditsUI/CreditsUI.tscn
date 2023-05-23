@@ -59,6 +59,10 @@ label_settings = SubResource("LabelSettings_n8e0o")
 [node name="RetroTvShader" parent="." instance=ExtResource("5_2md1e")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="SilverButton" to="." method="_on_silver_button_pressed"]
 
