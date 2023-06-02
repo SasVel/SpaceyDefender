@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci7mkc6q2toh5"]
+
+[ext_resource type="Texture2D" uid="uid://mv6y2mupw5ga" path="res://UI/BackgroundforUI/BackgroundForUI.png" id="1_eb1cy"]
+
+[node name="BackgroundforUI" type="NinePatchRect"]
+offset_right = 84.0
+offset_bottom = 84.0
+texture = ExtResource("1_eb1cy")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6

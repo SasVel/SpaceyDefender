@@ -12,11 +12,12 @@
 
 [sub_resource type="Environment" id="Environment_nsap3"]
 background_mode = 3
-glow_enabled = true
-glow_strength = 2.0
-glow_blend_mode = 0
-glow_hdr_threshold = 2.0
-glow_hdr_luminance_cap = 140.0
+tonemap_mode = 3
+glow_intensity = 1.83
+glow_strength = 1.51
+glow_blend_mode = 1
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 2.08
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jp0ly")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cegjlefmdss8"]
+[gd_scene load_steps=9 format=3 uid="uid://cegjlefmdss8"]
 
 [ext_resource type="Script" path="res://UI/PauseUI/PauseUI.gd" id="1_40tjw"]
 [ext_resource type="FontFile" uid="uid://bo46ww57g35wi" path="res://Font/PIXBOB LITE.ttf" id="1_jwu67"]
+[ext_resource type="PackedScene" uid="uid://ci7mkc6q2toh5" path="res://UI/BackgroundforUI/BackgroundforUI.tscn" id="2_6b46i"]
 [ext_resource type="PackedScene" uid="uid://bv3m05gqpshp8" path="res://UI/SettingsUI/MusicSettingsUI.tscn" id="2_ws1ov"]
 [ext_resource type="Script" path="res://UI/BlinkingText.gd" id="3_7i85e"]
 [ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/MainMenuUI/SilverButton/SilverButton.tscn" id="5_sxdaf"]
@@ -28,20 +29,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40tjw")
 
+[node name="BackgroundforUI" parent="." instance=ExtResource("2_6b46i")]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 95.0
+offset_right = 406.0
+offset_bottom = 309.0
+
 [node name="MusicSettingsUI" parent="." instance=ExtResource("2_ws1ov")]
 layout_mode = 1
 
 [node name="MusicSlider" parent="MusicSettingsUI" index="0"]
 offset_left = -58.0
-offset_top = -26.0
+offset_top = -42.0
 offset_right = 66.0
-offset_bottom = -10.0
+offset_bottom = -26.0
 
 [node name="SfxSlider" parent="MusicSettingsUI" index="1"]
 offset_left = -58.0
-offset_top = 29.0
+offset_top = 13.0
 offset_right = 66.0
-offset_bottom = 45.0
+offset_bottom = 29.0
 
 [node name="PauseLabel" type="Label" parent="."]
 process_mode = 3
@@ -52,9 +60,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -38.0
-offset_top = -126.0
+offset_top = -148.0
 offset_right = 38.0
-offset_bottom = -94.0
+offset_bottom = -116.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PAUSED"
@@ -76,9 +84,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -74.5
-offset_top = -90.5
+offset_top = -112.5
 offset_right = 74.5
-offset_bottom = -67.5
+offset_bottom = -89.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "PRESS ESC TO CONTINUE"
@@ -92,16 +100,16 @@ autostart = true
 
 [node name="RestartBtn" parent="." instance=ExtResource("5_sxdaf")]
 layout_mode = 1
-offset_top = 67.0
-offset_bottom = 97.0
+offset_top = 41.0
+offset_bottom = 71.0
 
 [node name="Label" parent="RestartBtn" index="0"]
 text = "restart"
 
 [node name="MainMenuBtn" parent="." instance=ExtResource("5_sxdaf")]
 layout_mode = 1
-offset_top = 106.0
-offset_bottom = 136.0
+offset_top = 81.0
+offset_bottom = 111.0
 
 [node name="Label" parent="MainMenuBtn" index="0"]
 text = "menu"

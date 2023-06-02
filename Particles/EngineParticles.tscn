@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://djpcx4dflh1oe"]
+
+[sub_resource type="Curve" id="Curve_f7pr5"]
+_data = [Vector2(0, 1), 0.0, 0.915825, 0, 0, Vector2(1, 0.381818), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jkhon"]
+offsets = PackedFloat32Array(0.344398, 0.684647)
+colors = PackedColorArray(1, 0.833333, 0, 0.992157, 1, 0.443137, 0, 1)
+
+[node name="EngineParticles" type="CPUParticles2D"]
+amount = 20
+lifetime = 0.2
+speed_scale = 0.7
+explosiveness = 0.1
+randomness = 0.2
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 55.57
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_f7pr5")
+color_ramp = SubResource("Gradient_jkhon")

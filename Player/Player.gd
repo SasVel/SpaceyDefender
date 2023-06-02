@@ -19,6 +19,7 @@ var currentState = state.IDLE
 var canShoot = true;
 @onready var shootTimer = $ShootTimer
 @onready var shootSound = $ShootSoundPlayer/AudioStreamPlayer2D 
+@onready var engineParticles = $EngineParticles
 
 func _ready():
 	PlayerStats.no_health.connect(on_no_health)
@@ -49,6 +50,8 @@ func idle_state():
 	
 	if input_vector != Vector2.ZERO && inputOn:
 		currentState = state.MOVE
+		
+	engineParticles.emitting = false
 	
 func move_state():
 	var inputTransformed = transform.basis_xform(input_vector)
@@ -57,6 +60,8 @@ func move_state():
 		velocity = inputTransformed * CURR_SPEED
 	else:
 		currentState = state.IDLE
+		
+	engineParticles.emitting = true
 func shoot_action():
 	if Input.is_action_pressed("shoot") && canShoot:
 		var bullet = Bullet.instantiate() as Bullet

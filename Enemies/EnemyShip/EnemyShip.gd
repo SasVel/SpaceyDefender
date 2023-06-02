@@ -4,10 +4,13 @@ extends Enemy
 @onready var shootTimer = $ShootTimer
 @onready var shootSound = $ShootSoundPlayer/AudioStreamPlayer2D
 @onready var stats = $Stats
-	
+@onready var engineParticles = $EngineParticles
+
 func chase_state():
 	if !shootTimer.is_stopped():
 		shootTimer.stop()
+	
+	engineParticles.emitting = true
 	super()
 
 func attack_state():
@@ -16,6 +19,8 @@ func attack_state():
 		
 	if shootTimer.is_stopped():
 		shootTimer.start()
+	
+	engineParticles.emitting = false
 	super()
 
 func _on_hurt_box_area_entered(area):

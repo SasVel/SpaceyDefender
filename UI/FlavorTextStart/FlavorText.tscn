@@ -12,7 +12,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1qa7s")
-textContet = "Federal agent 91056, you have been assigned to defend sector 2b64.\\nGood luck soldier..."
+textContet = "Federal agent 91056, you have been assigned to defend sector 2b64. Good luck soldier..."
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -32,7 +32,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -159.0
 offset_top = -97.0
-offset_right = 193.0
+offset_right = 159.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
