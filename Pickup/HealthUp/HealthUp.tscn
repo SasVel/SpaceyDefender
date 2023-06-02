@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp6tsjeb3gnbd"]
+[gd_scene load_steps=7 format=3 uid="uid://cp6tsjeb3gnbd"]
 
+[ext_resource type="Script" path="res://Pickup/HealthUp/HealthUp.gd" id="1_8l8gn"]
 [ext_resource type="Texture2D" uid="uid://bw6d1vrebml7o" path="res://Pickup/HealthUp/HealthUp.png" id="1_i7t1k"]
 
 [sub_resource type="Animation" id="Animation_fv4dv"]
@@ -14,7 +15,7 @@ tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(2, 2, 2),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
 }
@@ -40,7 +41,18 @@ _data = {
 "RESET": SubResource("Animation_syyeu")
 }
 
-[node name="HealthUp" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhr2p"]
+size = Vector2(20, 18)
+
+[node name="HealthUp" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_8l8gn")
+health_on_pickup = 2
+
+[node name="PickupTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
 
 [node name="Mainsprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_i7t1k")
@@ -51,3 +63,10 @@ autoplay = "HealthUpAnimation"
 libraries = {
 "": SubResource("AnimationLibrary_ukc1x")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_hhr2p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="PickupTimer" to="." method="_on_pickup_timer_timeout"]

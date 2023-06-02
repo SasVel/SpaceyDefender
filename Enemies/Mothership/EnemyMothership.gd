@@ -8,6 +8,8 @@ var lastSpawnPosition = Vector2.ZERO
 @onready var spawnRange = spawnArea.get_child(0).shape.size
 @onready var stats = $Stats
 
+@onready var HealthPickup = preload("res://Pickup/HealthUp/HealthUp.tscn")
+
 func attack_state():
 	if spawnTimer.is_stopped():
 		spawnTimer.start()
@@ -49,7 +51,13 @@ func _on_hurt_box_area_entered(area):
 func _on_stats_no_health():
 	GlobalInfo.enemiesKilled += 1
 	GlobalInfo.score += scoreOnKill
+	
+	if randi_range(0, 100) <= 60:
+		spawn_health_pickup()
 	death_effect()
 	queue_free()
 
-
+func spawn_health_pickup():
+	var healthPickup = HealthPickup.instantiate()
+	healthPickup.global_position = self.global_position
+	get_tree().get_root().add_child(healthPickup)
